@@ -1,0 +1,63 @@
+<script>
+
+var newTeam = {
+    stacks: [
+    {
+        name: "front",
+        technologies : "React and Backbone",
+        extra : {
+            testing : "Mocha and Sinon",
+            module: "Webpack",
+            deployment: "Jenkins"
+        },
+        kq: "are you confortable doing TDD"
+    },
+    {
+        name: "back",
+        technologies :"RoR, Elixir, Node and Java", 
+        extra : {
+            containers: "Docker and Kubernetes",
+            architecture: "Microservices"
+        },
+        kq: "have you worked with AWS" 
+    },
+    {
+        name: "fullstack",
+        technologies :"React and RoR"
+    }
+  ],
+    startDate : "October or November",
+    location : "Barcelona"
+}
+
+var stackText = prompt ("Front, Back or Fullstack?").toLowerCase();
+newTeam.stacks.forEach(checkMatch)
+
+function checkMatch(item,index) {
+    var message = "";
+    if (item.name===stackText) {
+        if (item.kq) {
+            var kqAnswer = prompt (item.kq + "(yes/no)?").toLowerCase();
+            if (kqAnswer === "yes") {
+                message += "You will be working with " + item.technologies + ".\n"
+                    + "You can start on " + newTeam.startDate + " and work 1 day remotely from home\n"
+                if (item.extra) {
+                    message += "\nExtra info:\n"
+                    for (var index in item.extra) {
+                        message += "\t" + index + ": " + item.extra[index] + "\n"
+                    }
+                }
+            } else {
+                message += "Sorry, wrong team for you, but if you're in " + newTeam.location + " let's keep in touch"
+            }
+        } else {
+            message += "Check the stack for front and backend and let's talk!"
+        }
+    }
+    if (message!="") {
+        alert(message)
+    }
+}
+
+
+</script>

@@ -26,7 +26,7 @@ var newTeam = {
         technologies :"React and RoR"
     }
   ],
-    startDate : "October or November",
+    startDate : "December or January",
     location : "Barcelona"
 }
 
